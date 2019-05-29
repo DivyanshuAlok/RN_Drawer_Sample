@@ -12,6 +12,13 @@ import {
   Alert
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import{ Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+  MenuProvider,
+} from 'react-native-popup-menu';
+
 
                 
 export default class Category extends Component{
@@ -24,6 +31,18 @@ export default class Category extends Component{
   render() {
     return (
       <View style={styles.container}>
+        <MenuProvider>
+        <Menu>
+          <MenuTrigger text='Select action' />
+          <MenuOptions>
+            <MenuOption onSelect={() => alert(`Save`)} text='Save' />
+            <MenuOption onSelect={() => alert(`Delete`)} >
+              <Text style={{color: 'red'}}>Delete</Text>
+            </MenuOption>
+            <MenuOption onSelect={() => alert(`Not called`)} disabled={true} text='Disabled' />
+          </MenuOptions>
+        </Menu>
+        </MenuProvider>
         <View style={styles.logoContainer}>
           <Text>
            <Image style={styles.logo} source={require('./logo.png')} />

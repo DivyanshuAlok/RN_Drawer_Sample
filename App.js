@@ -5,7 +5,8 @@ import {
   Text,
   View
 } from 'react-native';
-import { Router, Scene } from 'react-native-router-flux';
+import { Router, Scene ,Drawer, ActionConst} from 'react-native-router-flux';
+import Icon from "react-native-vector-icons/Ionicons";
 
 import SignUp from './components/SignUp';
 import Main from './components/Main';
@@ -17,51 +18,85 @@ import Category from './components/Category';
  
 type Props = {};
 export default class App extends Component<Props> {
-render() {
+
+
+
+  render() {
     return (
       <Router>
       <Scene key="root">
+          
+        <Drawer
+          key="drawer"
+          contentComponent={Main}
+          type={ActionConst.RESET}
+          drawerWidth={350}
+          hideNavBar
+          styles={styles.drawer}
+          drawerIcon={
+              ()=><Icon
+                    name="md-reorder"
+                    color="#000000"
+                    size={25}
+                  />
+                  
+            }
+          >
 
-          <Scene key="tabbar" tabs={true} tabBarStyle={{ backgroundColor: '#FFFFFF' }} title="tabber_101">
-              <Scene key="osu" title="OS"> 
-                <Scene key="Main"
-                  component={Main}
-                  title="Main"
-                  hideNavBar={true}
-                />
-              </Scene>
-              
-              <Scene key="Login" 
-                component={Login}
-                title="Login"
-                hideNavBar={true}
-              />
+            <Scene key="tabbar" tabs={true} showLabel={false} tabBarStyle={{ backgroundColor: '#FFFFFF' }} title="tabber_101">
 
               <Scene key="Category"
                 component={Category}
                 title="Category"
-                hideNavBar={true}
+                icon={
+                        ()=><Icon
+                              name="md-contacts"
+                              color="#000000"
+                              size={25}
+                            />
+                            
+                      }
               />
 
               <Scene key="Reminder"
                 component={Reminder}
                 title="Reminder"
                 hideNavBar={true}
+                icon={
+                        ()=><Icon
+                              name="md-alarm"
+                              color="#000000"
+                              size={25}
+                            />
+                            
+                      }
               />
-
-          </Scene>  
-        
-        <Scene key="Ricoh"
-          component={Ricoh}
-          title="Ricoh"
-          hideNavBar={true}
-        />
-        <Scene key="Try"
-          component={Try}
-          title="Try"
-          hideNavBar={true}
-        />
-
+              <Scene key="Login"
+                component={Login}
+                title="Login"
+                 icon={
+                        ()=><Icon
+                              name="md-at"
+                              color="#000000"
+                              size={25}
+                            />
+                            
+                      }
+              />
+              <Scene key="Try"
+                component={Try}
+                title="Try"
+                icon={
+                        ()=><Icon
+                              name="md-contact"
+                              color="#000000"
+                              size={25}
+                            />
+                            
+                      }
+              /> 
+            </Scene>    
+          </Drawer>
       </Scene>
       </Router>
 
@@ -70,11 +105,16 @@ render() {
       </View>*/
     );
   }
+
 }
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  }
+  },
+  drawer: {
+        shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 1
+    },
 });
 

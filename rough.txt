@@ -1,0 +1,49 @@
+ drawerImage={
+              ()=>(<Icon
+                    name="md-add"
+                    color="#000000"
+                    size={25}
+                  />
+                  )
+            }
+
+
+
+
+            <Scene key ="drawer"
+            drawer
+            conentComponent={Login}
+            drawerImage={
+              ()=>(<Icon
+                    name="md-add"
+                    color="#000000"
+                    size={25}
+                  />
+                  )
+            }
+            drawerWidth={300}
+            hideNavBar
+            >
+
+
+             <Drawer
+                ref="navigation"
+                open={state.open}
+                onOpen={()=>Actions.refresh({key:state.key, open: true})}
+                onClose={()=>Actions.refresh({key:state.key, open: false})}
+                type="displace"
+                content={<SideMenu />}
+                tapToClose={true}
+                openDrawerOffset={0.2}
+                panCloseMask={0.2}
+                negotiatePan={true}
+                styles={drawerStyles}
+                tweenHandler={(ratio) => {
+                  return {
+                    mainOverlay: { opacity: ratio === 0 ? 0 : 0.3, backgroundColor: '#000' }
+                  }
+                }}
+                // tweenHandler={Drawer.tweenPresets.parallax}
+                >
+                <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate} />
+            </Drawer>

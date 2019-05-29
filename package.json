@@ -8,7 +8,12 @@
   },
   "dependencies": {
     "react": "16.8.3",
-    "react-native": "0.59.8"
+    "react-native": "0.59.8",
+    "react-native-calendars": "^1.143.0",
+    "react-native-drawer": "^2.5.1",
+    "react-native-popup-menu": "^0.15.6",
+    "react-native-router-flux": "^4.0.6",
+    "react-native-vector-icons": "^6.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

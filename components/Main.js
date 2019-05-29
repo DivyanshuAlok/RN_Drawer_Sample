@@ -16,10 +16,7 @@ export default class Main extends Component<Props> {
   render(){
     return (
       <View style={styles.container}>
-        <View style={styles.logoContainer}>
-          <Text>
-          <Image style={styles.logo} source={require('./logo.png')} />
-          </Text>        
+        <View style={styles.logoContainer}>       
         </View>
         <View style={styles.buttonsContainer}>
           <TouchableOpacity>
@@ -44,21 +41,19 @@ const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
   },
   logoContainer: {
-    flex: 1,
-    justifyContent: 'center',
   },
   logo:{
   },
   buttonsContainer:{
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+        backgroundColor: '#5484ed',
+
   },
   button:{
     fontFamily: 'gotham rounded',
@@ -67,7 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     alignItems: 'center',
     height: 45,
-    width: DEVICE_WIDTH - 60,
+    width: DEVICE_WIDTH,
     borderRadius: 30,
     color: 'white',
     marginBottom: 7,
