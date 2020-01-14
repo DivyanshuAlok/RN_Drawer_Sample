@@ -49,11 +49,12 @@ export default class App extends Component<Props> {
                 component={Category}
                 title="Category"
                 icon={
-                        ()=><Icon
-                              name="md-contacts"
-                              color="#000000"
-                              size={25}
-                            />
+                        ()=>{return(
+                              <View>
+                                <Icon name="md-contact" color='#000000' size={25} />
+                                <Text>aerg</Text>
+                              </View>
+                              )}
                             
                       }
               />
@@ -87,11 +88,12 @@ export default class App extends Component<Props> {
                 component={Try}
                 title="Try"
                 icon={
-                        ()=><Icon
-                              name="md-contact"
-                              color="#000000"
-                              size={25}
-                            />
+                        ()=>{return(
+                              <View>
+                                <Icon name="md-contact" color='#000000' size={25} />
+                                <Text>aerg</Text>
+                              </View>
+                              )}
                             
                       }
               /> 
